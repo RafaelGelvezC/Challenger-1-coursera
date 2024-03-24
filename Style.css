@@ -198,3 +198,29 @@ main{
 .ocultar{
     display: none;
 }
+
+
+footer {
+    padding: 20px; /* Espaciado interno del footer */
+    text-align: center;
+    position: fixed; /* Fijar posición */
+    left: 0; /* Alinear al borde izquierdo */
+    bottom: 0; /* Alinear al borde inferior */
+    width: 100%; /* Ocupar todo el ancho de la página */
+}
+
+footer img {
+    width: 30px; /* Ajustar el tamaño de la imagen de la red social */
+    height: 30px;
+}
+
+footer p {
+    color: white; 
+    font-size: 14px; 
+}
+
+.footer-content {
+    display: flex; 
+    align-items: center; /* Centrar verticalmente los elementos */
+    text-align: end;
+}

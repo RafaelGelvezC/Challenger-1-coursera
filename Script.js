@@ -14,7 +14,7 @@ function encriptar() {
     ocultarInfo();
     var cajatexto = recuperarTexto();
     
-    if (contieneCaracteresEspeciales(cajatexto)) {
+    if (contieneCaracteresEspeciales(cajatexto) || contieneMayusculas(cajatexto) || contieneNumeros(cajatexto)) {
         mostrarAlerta();
     } else {
         var textoEncriptado = encriptarTexto(cajatexto);
@@ -30,7 +30,7 @@ function desencriptar() {
     ocultarInfo();
     var cajatexto = recuperarTexto();
     
-    if (contieneCaracteresEspeciales(cajatexto)) {
+    if (contieneCaracteresEspeciales(cajatexto) || contieneMayusculas(cajatexto) || contieneNumeros(cajatexto)) {
         mostrarAlerta();
     } else {
         var textoDesencriptado = desencriptarTexto(cajatexto);
@@ -113,8 +113,16 @@ function contieneCaracteresEspeciales(texto) {
     return caracteresEspeciales.test(texto);
 }
 
+function contieneMayusculas(texto) {
+    return /[A-Z]/.test(texto);
+}
+
+function contieneNumeros(texto) {
+    return /[0-9]/.test(texto);
+}
+
 function mostrarAlerta() {
-    window.alert("El texto ingresado contiene caracteres especiales, acentos o números. Por favor, inténtelo de nuevo.");
+    window.alert("El texto ingresado no debe contener palabras en mayúsculas, caracteres especiales, acentos o números. Por favor, inténtelo de nuevo.");
 }
 
 function mostrarResultado(texto) {
