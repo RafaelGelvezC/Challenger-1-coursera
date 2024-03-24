@@ -1,11 +1,14 @@
 var botonEncriptar = document.querySelector(".btn-encriptar");
 var botonDesencriptar = document.querySelector(".btn-desencriptar");
+var botonLimpiar = document.querySelector(".btn-limpiar");
 var munieco = document.querySelector(".mu-bu");
 var contenedor = document.querySelector(".contenedor-Parrafo");
 var resultado = document.querySelector(".contenedor-Resultados");
+var cajaTexto = document.querySelector(".caja-texto");
 
 botonEncriptar.onclick = encriptar;
 botonDesencriptar.onclick = desencriptar;
+botonLimpiar.onclick = limpiar;
 
 function encriptar() {
     ocultarInfo();
@@ -14,7 +17,12 @@ function encriptar() {
     if (contieneCaracteresEspeciales(cajatexto)) {
         mostrarAlerta();
     } else {
-        resultado.textContent = encriptarTexto(cajatexto);
+        var textoEncriptado = encriptarTexto(cajatexto);
+        if (textoEncriptado) {
+            mostrarResultado(textoEncriptado);
+        } else {
+            mostrarMunieco();
+        }
     }
 }
 
@@ -25,8 +33,20 @@ function desencriptar() {
     if (contieneCaracteresEspeciales(cajatexto)) {
         mostrarAlerta();
     } else {
-        resultado.textContent = desencriptarTexto(cajatexto);
+        var textoDesencriptado = desencriptarTexto(cajatexto);
+        if (textoDesencriptado) {
+            mostrarResultado(textoDesencriptado);
+        } else {
+            mostrarMunieco();
+        }
     }
+}
+
+function limpiar() {
+    cajaTexto.value = "";
+    resultado.textContent = "";
+    mostrarMunieco();
+    contenedor.classList.remove("ocultar");
 }
 
 function recuperarTexto() {
@@ -95,6 +115,16 @@ function contieneCaracteresEspeciales(texto) {
 
 function mostrarAlerta() {
     window.alert("El texto ingresado contiene caracteres especiales, acentos o números. Por favor, inténtelo de nuevo.");
+}
+
+function mostrarResultado(texto) {
+    resultado.textContent = texto;
+    resultado.classList.remove("ocultar");
+}
+
+function mostrarMunieco() {
+    munieco.classList.remove("ocultar");
+    contenedor.classList.remove("ocultar");
 }
 
 const btnCopiar = document.querySelector(".btn-Copiar"); 

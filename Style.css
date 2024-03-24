@@ -41,7 +41,7 @@ main{
     width: 80%;
     height: 100%;
     border-radius: 10px;
-    background-color: rgba(170, 93, 241, 0.712);
+    background-color: #D8DFE8;
     cursor: pointer;
     color: #0a3871;
     font-size: 32px;
@@ -79,6 +79,7 @@ main{
     font-weight: 400;
     border: none;
     margin-right: 20px;
+    margin-left: -10%;
     cursor: pointer;
 }
 
@@ -92,9 +93,22 @@ main{
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     border: 1px solid #0A3871;
+    margin-right: 20px;
     cursor: pointer;
 }
 
+.btn-limpiar{
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: #D8DFE8;
+    color: #0A3871;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #0A3871;
+    cursor: pointer;
+}
 
 .seccion2{
     display: block;
