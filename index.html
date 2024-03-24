@@ -22,6 +22,7 @@
             <div class="caja-Botones">
                 <input type="button" class="btn-encriptar" value="Encriptar">
                 <input type="button" class="btn-desencriptar" value="Desencriptar">
+                
             </div>
         </section>
         <section class="seccion2" >
@@ -40,19 +41,6 @@
             </div>
         </section>
     </main>
-    <script src="Script.js">
-        function validarTexto() {
-            var texto = document.querySelector(".caja-texto").value;
-
-        // Verificar si el texto contiene mayúsculas o caracteres especiales
-            if (/[A-Z!@#$%^&*(),.?":{}|<>]/.test(texto)) {
-            // Cambiar el color de la imagen a rojo
-                document.getElementById("imgAlert").style.filter = "hue-rotate(0deg)";
-            } else {
-            // Cambiar el color de la imagen a su estado normal
-                document.getElementById("imgAlert").style.filter = "hue-rotate(120deg)";
-            }
-        }
-    </script>
+    <script src="Script.js"></script>
 </body>
 </html>
