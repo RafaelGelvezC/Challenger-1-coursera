@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Style.css">
+    <title>Encriptador Changeller Rafael</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/Logo.png" alt="logo">
+    </header>
+    <main>
+        <section class="seccion1" >
+            <div class="contenedor-Texto">
+                <textarea placeholder="Ingrese el texto aqui" class="caja-texto"></textarea>
+            </div>
+            <div>
+                <img id="imgAlert" src="images/Frame 1.png" class="alert" alt="alert">
+            </div>
+            <div class="caja-Botones">
+                <input type="button" class="btn-encriptar" value="Encriptar">
+                <input type="button" class="btn-desencriptar" value="Desencriptar">
+            </div>
+        </section>
+        <section class="seccion2" >
+            <div class="mu-bu">
+                <img src="images/Muñeco.png" alt="muñeco">
+            </div>
+            <div class="contenedor-Parrafo">
+                <h3>Ningùn mensaje fue <br> encontrado</h3>
+                <p>Ingrese el texto que desees encriptar o <br> Desencriptar.</p>
+            </div>
+            <div class="contenedor-Copiar">
+                <input type="button" class="btn-Copiar" value="Copiar">
+            </div>
+            <div class="contenedor-Resultados">
+                <p class="texto-Resultado"></p>
+            </div>
+        </section>
+    </main>
+    <script src="Script.js">
+        function validarTexto() {
+            var texto = document.querySelector(".caja-texto").value;
+
+        // Verificar si el texto contiene mayúsculas o caracteres especiales
+            if (/[A-Z!@#$%^&*(),.?":{}|<>]/.test(texto)) {
+            // Cambiar el color de la imagen a rojo
+                document.getElementById("imgAlert").style.filter = "hue-rotate(0deg)";
+            } else {
+            // Cambiar el color de la imagen a su estado normal
+                document.getElementById("imgAlert").style.filter = "hue-rotate(120deg)";
+            }
+        }
+    </script>
+</body>
+</html>
