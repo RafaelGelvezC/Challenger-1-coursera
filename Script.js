@@ -60,52 +60,42 @@ function ocultarInfo() {
 }
 
 function encriptarTexto(mensaje) {
-    var texto = mensaje.toLowerCase();
-    var textoFinal = "";
-
-    for(var i = 0; i < texto.length; i++) {
-        if(texto[i] == "a") {
-            textoFinal = textoFinal + "ai";
-        } else if(texto[i] == "e") {
-            textoFinal = textoFinal + "enter";
-        } else if(texto[i] == "i") {
-            textoFinal = textoFinal + "imes";
-        } else if(texto[i] == "o") {
-            textoFinal = textoFinal + "ober";
-        } else if(texto[i] == "u") {
-            textoFinal = textoFinal + "ufat";
-        } else {
-            textoFinal = textoFinal + texto[i];
-        }
-    }
-    return textoFinal;
+    // Convertir la palabra a minúsculas
+    mensaje = mensaje.toLowerCase();
+    
+    // Diccionario de encriptación
+    var diccionario = {
+        "e": "enter",
+        "i": "imes",
+        "a": "ai",
+        "o": "ober",
+        "u": "ufat"
+    };
+    
+    // Encriptar cada letra utilizando el diccionario
+    var textoEncriptado = mensaje.replace(/[eioua]/g, function(letra) {
+        return diccionario[letra];
+    });
+    
+    return textoEncriptado;
 }
 
 function desencriptarTexto(mensaje) {
-    var texto = mensaje.toLowerCase();
-    var textoFinal = "";
-
-    for(var i = 0; i < texto.length; i++) {
-        if(texto.substring(i, i+4) == "ai") {
-            textoFinal = textoFinal + "a";
-            i = i + 1;
-        } else if(texto.substring(i, i+5) == "enter") {
-            textoFinal = textoFinal + "e";
-            i = i + 4;
-        } else if(texto.substring(i, i+4) == "imes") {
-            textoFinal = textoFinal + "i";
-            i = i + 3;
-        } else if(texto.substring(i, i+4) == "ober") {
-            textoFinal = textoFinal + "o";
-            i = i + 3;
-        } else if(texto.substring(i, i+4) == "ufat") {
-            textoFinal = textoFinal + "u";
-            i = i + 3;
-        } else {
-            textoFinal = textoFinal + texto[i];
-        }
-    }
-    return textoFinal;
+    // Diccionario de desencriptación
+    var diccionario = {
+        "enter": "e",
+        "imes": "i",
+        "ai": "a",
+        "ober": "o",
+        "ufat": "u"
+    };
+    
+    // Desencriptar utilizando el diccionario
+    var textoDesencriptado = mensaje.replace(/enter|imes|ai|ober|ufat/g, function(bloque) {
+        return diccionario[bloque];
+    });
+    
+    return textoDesencriptado;
 }
 
 function contieneCaracteresEspeciales(texto) {
